@@ -30,13 +30,13 @@ See `requirements.txt`
 
 ## Envionment Variables
 
-|        Name       |                Description                |                Default                 |
-|-------------------|-------------------------------------------|----------------------------------------|
-| ADMIN_EMAIL       | Admin email                               |                                        |
-| SECRET_KEY        | Flask secret key                          | `h3bF9paWv9nNfAEo`                     |
-| DEV_DATABASE_URL  | Database connection URL                   | `sqlite:///current-path/db-dev.sqlite` |
-| PROD_DATABASE_URL | Database connection URL For Production    | `sqlite:///current-path/db.sqlite`     |
-| FLASK_CONFIG      | Config name (`development`, `production`) | `default` (Same to `development`)      |
+|       Name       |                Description                |                Default                 |
+|------------------|-------------------------------------------|----------------------------------------|
+| ADMIN_EMAIL      | Admin email                               |                                        |
+| SECRET_KEY       | Flask secret key                          | `h3bF9paWv9nNfAEo`                     |
+| DEV_DB_CONN_URL  | Database connection URL                   | `sqlite:///current-path/db-dev.sqlite` |
+| PROD_DB_CONN_URL | Database connection URL For Production    | `sqlite:///current-path/db.sqlite`     |
+| FLASK_CONFIG     | Config name (`development`, `production`) | `default` (Same to `development`)      |
 
 ## Setup Database
 

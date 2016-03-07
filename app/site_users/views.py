@@ -51,8 +51,9 @@ def user_list():
         q = q.filter(User.email.like(u"%{}%".format(email)))
 
     p = q.order_by(
-            db.func.field(User.email, current_user.email).desc(),
-            db.func.field(User.status, 'normal', 'disabled'),
+            # Uncomment only for MySQL
+            # db.func.field(User.email, current_user.email).desc(),
+            # db.func.field(User.status, 'normal', 'disabled'),
             User.last_seen.desc(),
             User.email).paginate(
                 page_num,

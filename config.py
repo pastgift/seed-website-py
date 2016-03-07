@@ -34,11 +34,11 @@ class Config(object):
 
 class DevelopmentConfig(Config):
     DEBUG = True
-    SQLALCHEMY_DATABASE_URI = os.environ.get('DEV_DATABASE_URL') or \
+    SQLALCHEMY_DATABASE_URI = os.environ.get('DEV_DB_CONN_URL') or \
         'sqlite:///' + os.path.join(basedir, 'db-dev.sqlite')
 
 class ProductionConfig(Config):
-    SQLALCHEMY_DATABASE_URI = os.environ.get('PROD_DATABASE_URL') or \
+    SQLALCHEMY_DATABASE_URI = os.environ.get('PROD_DB_CONN_URL') or \
         'sqlite:///' + os.path.join(basedir, 'db.sqlite')
 
 config = {
