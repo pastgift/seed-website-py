@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-07 23:25+0800\n"
+"POT-Creation-Date: 2016-03-08 00:33+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -169,6 +169,7 @@ msgstr ""
 #: app/templates/index.html:5 app/templates/index.html:13
 #: app/templates/site_auth/change_password.html:4
 #: app/templates/site_auth/login.html:4
+#: app/templates/site_users/acl_setting.html:5
 #: app/templates/site_users/operation_records.html:5
 #: app/templates/site_users/user_add.html:4
 #: app/templates/site_users/user_edit.html:4
@@ -182,6 +183,7 @@ msgstr ""
 
 #: app/templates/400.html:13 app/templates/403.html:13
 #: app/templates/404.html:13 app/templates/500.html:26
+#: app/templates/site_users/acl_setting.html:78
 #: app/templates/site_users/user_add.html:69
 #: app/templates/site_users/user_edit.html:56
 msgid "Back"
@@ -338,6 +340,19 @@ msgstr ""
 
 #: app/templates/site_auth/login.html:68
 msgid "Forget password or do not have an account?"
+msgstr ""
+
+#: app/templates/site_users/acl_setting.html:5
+#: app/templates/site_users/acl_setting.html:11
+msgid "ACL Setting"
+msgstr ""
+
+#: app/templates/site_users/acl_setting.html:14
+msgid "Site User Name："
+msgstr ""
+
+#: app/templates/site_users/acl_setting.html:15
+msgid "Site User Email："
 msgstr ""
 
 #: app/templates/site_users/operation_records.html:5
