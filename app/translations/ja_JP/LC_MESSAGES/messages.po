@@ -1,0 +1,468 @@
+# Japanese (Japan) translations for PROJECT.
+# Copyright (C) 2016 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2016-03-07 23:25+0800\n"
+"PO-Revision-Date: 2016-03-07 22:18+0800\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: ja_JP\n"
+"Language-Team: zh_Hans_CN <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.2.0\n"
+
+#: app/__init__.py:19
+msgid "Please login"
+msgstr "ログインしてください"
+
+#: app/site_auth/forms.py:16
+msgid "Please enter your email"
+msgstr "メールアドレスを入力してください"
+
+#: app/site_auth/forms.py:18
+msgid "Please enter a correct email"
+msgstr "正しいメールアドレスを入力してください"
+
+#: app/site_auth/forms.py:21
+msgid "Please enter your password"
+msgstr "パスワードを入力してください"
+
+#: app/site_auth/forms.py:24
+msgid "Please enter a 4-length CAPTCHA code"
+msgstr "4桁のコードを入力してください"
+
+#: app/site_auth/forms.py:25
+msgid "Please enter the CAPTCHA code"
+msgstr "コードを入力してください"
+
+#: app/site_auth/forms.py:29 app/templates/base.html:99
+#: app/templates/index.html:27 app/templates/site_auth/login.html:4
+#: app/templates/site_auth/login.html:9
+msgid "Login"
+msgstr "ログイン"
+
+#: app/site_auth/forms.py:39 app/site_auth/forms.py:50
+msgid "Wrong email or password"
+msgstr "メールアドレスやパスワードが間違っています"
+
+#: app/site_auth/forms.py:42
+msgid "Your account has been disabled"
+msgstr "アカーントが無効化されています"
+
+#: app/site_auth/forms.py:57
+msgid "Wrong CAPTCHA code"
+msgstr "コードが間違っています"
+
+#: app/site_auth/forms.py:61
+msgid "Please enter the old password"
+msgstr "古いパスワートを入力してください"
+
+#: app/site_auth/forms.py:64
+msgid "Please enter the new password"
+msgstr "新しいパスワートを入力してください"
+
+#: app/site_auth/forms.py:65
+msgid "The new passwords you entered do not match"
+msgstr "入力した新しいパスワートが一致していません"
+
+#: app/site_auth/forms.py:68
+msgid "Please confirm new password"
+msgstr "新しいパスワートをもう一度入力してください"
+
+#: app/site_auth/forms.py:70 app/templates/base.html:87
+#: app/templates/site_auth/change_password.html:4
+#: app/templates/site_auth/change_password.html:9
+#: app/templates/site_users/user_list.html:139
+msgid "Change Password"
+msgstr "パスワート変更"
+
+#: app/site_auth/views.py:56
+msgid "Logged out"
+msgstr "ログアウト"
+
+#: app/site_auth/views.py:77
+msgid "Password Changed"
+msgstr "パスワートが変更されました"
+
+#: app/site_auth/views.py:83
+msgid "Wrong old password"
+msgstr "古いパスワートが間違っています"
+
+#: app/site_users/forms.py:16 app/site_users/forms.py:73
+#: app/templates/site_users/operation_records.html:12
+#: app/templates/site_users/user_list.html:12
+msgid "Search"
+msgstr "検索"
+
+#: app/site_users/forms.py:20 app/site_users/forms.py:47
+msgid "Please enter a user email"
+msgstr "メールアドレスを入力してください"
+
+#: app/site_users/forms.py:22 app/site_users/forms.py:49
+msgid "Please enter a correct user email"
+msgstr "正しいパスワートを入力してください"
+
+#: app/site_users/forms.py:25 app/site_users/forms.py:52
+msgid "Please enter a user name"
+msgstr "ユーザ名称を入力してください"
+
+#: app/site_users/forms.py:26 app/site_users/forms.py:53
+msgid "Please enter a user name between 1 and 64 characters long"
+msgstr "ユーザ名称は1桁から64桁までです"
+
+#: app/site_users/forms.py:29
+msgid "Please enter a password"
+msgstr "パスワードを入力してください"
+
+#: app/site_users/forms.py:30
+msgid "The passwords you entered do not match"
+msgstr "入力したパスワードが一致していません"
+
+#: app/site_users/forms.py:33
+msgid "Please confirm the password"
+msgstr "パスワードをもう一度入力してください"
+
+#: app/site_users/forms.py:35
+msgid "Add"
+msgstr "追加"
+
+#: app/site_users/forms.py:39 app/site_users/forms.py:62
+msgid "This email already existed"
+msgstr "このメールアドレスは既に使われています"
+
+#: app/site_users/forms.py:43
+msgid "This name already existed"
+msgstr "この名称は既に使われています"
+
+#: app/site_users/forms.py:57 app/templates/site_users/user_list.html:154
+msgid "Edit"
+msgstr "編集"
+
+#: app/site_users/forms.py:66
+msgid "OK"
+msgstr "確認"
+
+#: app/site_users/views.py:93
+msgid "User {} ({}) has been added"
+msgstr "ユーザ {} ({}) が追加されました"
+
+#: app/site_users/views.py:132
+msgid "User {} ({}) has been edited"
+msgstr "ユーザ {} ({}) が編集されました"
+
+#: app/site_users/views.py:156
+msgid "User {} ({}) status has been setted: {}"
+msgstr "ユーザ {} ({}) のステータスが {} にセットされました"
+
+#: app/site_users/views.py:201
+msgid "User {} ({}) ACL has been setted"
+msgstr "ユーザACL {} ({}) がセットされました"
+
+#: app/templates/400.html:3 app/templates/403.html:3 app/templates/404.html:3
+#: app/templates/500.html:3 app/templates/_extra_translations.html:1
+#: app/templates/base.html:3 app/templates/base.html:25
+#: app/templates/index.html:5 app/templates/index.html:13
+#: app/templates/site_auth/change_password.html:4
+#: app/templates/site_auth/login.html:4
+#: app/templates/site_users/operation_records.html:5
+#: app/templates/site_users/user_add.html:4
+#: app/templates/site_users/user_edit.html:4
+#: app/templates/site_users/user_list.html:5
+msgid "<Project Name>"
+msgstr "シードWebプロジェクト"
+
+#: app/templates/400.html:3 app/templates/400.html:7
+msgid "Bad Operation"
+msgstr "予期以外の操作"
+
+#: app/templates/400.html:13 app/templates/403.html:13
+#: app/templates/404.html:13 app/templates/500.html:26
+#: app/templates/site_users/user_add.html:69
+#: app/templates/site_users/user_edit.html:56
+msgid "Back"
+msgstr "戻る"
+
+#: app/templates/403.html:3 app/templates/403.html:7
+msgid "Operation Denied"
+msgstr "操作が拒否されました"
+
+#: app/templates/404.html:3 app/templates/404.html:7
+msgid "Page Not Found"
+msgstr "ページが見つかりません"
+
+#: app/templates/500.html:3 app/templates/500.html:7
+msgid "Server Internal Error"
+msgstr "サーバ内部エラー"
+
+#: app/templates/500.html:13
+msgid "Detail Information"
+msgstr "詳細情報"
+
+#: app/templates/_extra_translations.html:3
+msgid "IMPORTANT"
+msgstr "重要"
+
+#: app/templates/_extra_translations.html:5
+msgid "Site User Managing Module"
+msgstr "サイトユーザ管理モジュール"
+
+#: app/templates/_extra_translations.html:6
+#: app/templates/site_users/user_add.html:4
+#: app/templates/site_users/user_add.html:10
+#: app/templates/site_users/user_list.html:50
+#: app/templates/site_users/user_list.html:108
+msgid "Add Site User"
+msgstr "サイトユーザを追加"
+
+#: app/templates/_extra_translations.html:7
+msgid "Modify Site User"
+msgstr "サイトユーザを編集"
+
+#: app/templates/_extra_translations.html:8
+msgid "Enable/Disable Site User"
+msgstr "サイトユーザを有効/無効化"
+
+#: app/templates/_extra_translations.html:9
+msgid "Set Site User ACL"
+msgstr "サイトユーザACLをセット"
+
+#: app/templates/_extra_translations.html:10
+msgid "Show Site User Operation Records"
+msgstr "サイトユーザ操作記録を表示"
+
+#: app/templates/_macros.html:5
+msgid "Prev Page"
+msgstr "前へ"
+
+#: app/templates/_macros.html:11
+msgid "Select Page..."
+msgstr "ページを選択..."
+
+#: app/templates/_macros.html:17
+msgid "Next Page"
+msgstr "次へ"
+
+#: app/templates/_macros.html:51
+msgid "No Data"
+msgstr "データなし"
+
+#: app/templates/_macros.html:62
+msgid "Quick Filter..."
+msgstr "クイックフィルター..."
+
+#: app/templates/_macros.html:67
+msgid "Clear Filter"
+msgstr "フィルターをクリア"
+
+#: app/templates/base.html:20
+msgid "Navigator Bar"
+msgstr "ナビバー"
+
+#: app/templates/base.html:32
+msgid "Home Page"
+msgstr "ホームページ"
+
+#: app/templates/base.html:45
+msgid "Maintenance"
+msgstr "メンテナンス"
+
+#: app/templates/base.html:51
+msgid "Site User"
+msgstr "サイトユーザ"
+
+#: app/templates/base.html:58
+msgid "Operation Records"
+msgstr "操作記録"
+
+#: app/templates/base.html:70
+msgid "Language"
+msgstr "言語"
+
+#: app/templates/base.html:93
+msgid "Logout"
+msgstr "ログアウト"
+
+#: app/templates/index.html:19
+msgid ", Welcome Back"
+msgstr "、おかえり"
+
+#: app/templates/index.html:21
+msgid "Welcome To <Project Name>"
+msgstr "シードWebプロジェクト へようこそ"
+
+#: app/templates/site_auth/change_password.html:17
+#: app/templates/site_auth/change_password.html:20
+msgid "Old Password"
+msgstr "古いパスワード"
+
+#: app/templates/site_auth/change_password.html:33
+#: app/templates/site_auth/change_password.html:36
+#: app/templates/site_users/user_edit.html:42
+msgid "New Password"
+msgstr "新しいパスワード"
+
+#: app/templates/site_auth/change_password.html:49
+#: app/templates/site_auth/change_password.html:52
+msgid "Confirm New Password"
+msgstr "新しいパスワード確認"
+
+#: app/templates/site_auth/login.html:18
+#: app/templates/site_users/operation_records.html:28
+#: app/templates/site_users/user_add.html:16
+#: app/templates/site_users/user_add.html:18
+#: app/templates/site_users/user_edit.html:16
+#: app/templates/site_users/user_edit.html:18
+#: app/templates/site_users/user_list.html:22
+#: app/templates/site_users/user_list.html:68
+msgid "Email"
+msgstr "メール"
+
+#: app/templates/site_auth/login.html:33
+#: app/templates/site_users/user_add.html:42
+#: app/templates/site_users/user_add.html:44
+msgid "Password"
+msgstr "パスワード"
+
+#: app/templates/site_auth/login.html:48
+msgid "CAPTCHA"
+msgstr "コード"
+
+#: app/templates/site_auth/login.html:65
+msgid "Keep Login"
+msgstr "ログインしたままにする"
+
+#: app/templates/site_auth/login.html:68
+msgid "Forget password or do not have an account?"
+msgstr "パスワートを忘れたか、アカーントを持っていない場合は？"
+
+#: app/templates/site_users/operation_records.html:5
+#: app/templates/site_users/operation_records.html:53
+msgid "Operation Record"
+msgstr "操作記録"
+
+#: app/templates/site_users/operation_records.html:20
+#: app/templates/site_users/user_list.html:26
+msgid "By Name"
+msgstr "名称で"
+
+#: app/templates/site_users/operation_records.html:22
+#: app/templates/site_users/user_add.html:29
+#: app/templates/site_users/user_add.html:31
+#: app/templates/site_users/user_edit.html:29
+#: app/templates/site_users/user_edit.html:31
+#: app/templates/site_users/user_list.html:28
+#: app/templates/site_users/user_list.html:69
+msgid "Name"
+msgstr "名称"
+
+#: app/templates/site_users/operation_records.html:26
+#: app/templates/site_users/user_list.html:20
+msgid "By Email"
+msgstr "メールで"
+
+#: app/templates/site_users/operation_records.html:32
+msgid "By Record"
+msgstr "記録で"
+
+#: app/templates/site_users/operation_records.html:34
+#: app/templates/site_users/operation_records.html:60
+msgid "Record"
+msgstr "記録"
+
+#: app/templates/site_users/operation_records.html:40
+#: app/templates/site_users/user_list.html:34
+msgid "Clear"
+msgstr "クリア"
+
+#: app/templates/site_users/operation_records.html:59
+msgid "User"
+msgstr "ユーザ"
+
+#: app/templates/site_users/operation_records.html:61
+msgid "Time"
+msgstr "時間"
+
+#: app/templates/site_users/user_add.html:55
+#: app/templates/site_users/user_add.html:57
+msgid "Confirm Password"
+msgstr "パスワード確認"
+
+#: app/templates/site_users/user_edit.html:4
+#: app/templates/site_users/user_edit.html:10
+#: app/templates/site_users/user_list.html:114
+msgid "Edit Site User"
+msgstr "サイトユーザを編集"
+
+#: app/templates/site_users/user_edit.html:44
+msgid "New Password, or KEEP BLANK if not change"
+msgstr "新しいパスワード、変更がない場合は空白のままで"
+
+#: app/templates/site_users/user_list.html:5
+#: app/templates/site_users/user_list.html:62
+msgid "Site User List"
+msgstr "サイトユーザリスト"
+
+#: app/templates/site_users/user_list.html:44
+msgid "Operation"
+msgstr "操作"
+
+#: app/templates/site_users/user_list.html:82
+msgid "Latest Seen："
+msgstr "最後アクセス"
+
+#: app/templates/site_users/user_list.html:86
+msgid "Never"
+msgstr "一度もない"
+
+#: app/templates/site_users/user_list.html:94
+msgid "ME"
+msgstr "私"
+
+#: app/templates/site_users/user_list.html:97
+msgid "ADMIN"
+msgstr "管理者"
+
+#: app/templates/site_users/user_list.html:120
+msgid "Enable/Disable"
+msgstr "有効/無効化"
+
+#: app/templates/site_users/user_list.html:126
+msgid "Set User ACL"
+msgstr "ユーザACLセット"
+
+#: app/templates/site_users/user_list.html:177
+#: app/templates/site_users/user_list.html:189
+#: app/templates/site_users/user_list.html:233
+msgid "Enabled"
+msgstr "有効"
+
+#: app/templates/site_users/user_list.html:182
+#: app/templates/site_users/user_list.html:194
+#: app/templates/site_users/user_list.html:254
+msgid "Disabled"
+msgstr "無効"
+
+#: app/templates/site_users/user_list.html:223
+msgid "Disable"
+msgstr "無効化"
+
+#: app/templates/site_users/user_list.html:243
+msgid "Enable"
+msgstr "有効化"
+
+#~ msgid "ACL Setting"
+#~ msgstr "ACLセット"
+
+#~ msgid "Site User Name："
+#~ msgstr "サイトユーザ名称"
+
+#~ msgid "Site User Email："
+#~ msgstr "サイトユーザメールアドレス"
+

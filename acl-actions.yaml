@@ -1,0 +1,35 @@
+adminDefaultAclActions:
+    - enterManageUsers
+    - addSiteUser
+    - editSiteUser
+    - setSiteUserStatus
+    - setSiteUserAcl
+    - showManageSiteUserOperationRecords
+
+limitedAclActions:
+    - setSiteUserAcl
+
+aclActions:
+    -
+        action: enterManageUsers
+        title: Site User Managing Module
+        importance: danger
+        importanceTitle: IMPORTANT
+        sub:
+            -
+                action: addSiteUser
+                title: Add Site User
+            -
+                action: editSiteUser
+                title: Edit Site User
+            -
+                action: setSiteUserStatus
+                title: Enable/Disable Site User
+            -
+                action: setSiteUserAcl
+                title: Set Site User ACL
+                importance: danger
+                importanceTitle: IMPORTANT
+            -
+                action: showManageSiteUserOperationRecords
+                title: Show Site User Operation Records

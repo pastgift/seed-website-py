@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}{{_('<Project Name>')}} - {{_('Add Site User')}}{% endblock %}
+
+{% block page_content %}
+
+<div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2 col-xs-10 col-xs-offset-1">
+    <div class="page-header">
+        <h3><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> {{_('Add Site User')}}</h3>
+    </div>
+
+    <form class="form-horizontal" method="POST">
+        {{ form.hidden_tag() }}
+        <div class="form-group {% if form.errors.email %}{{ 'has-error' }}{% endif %}">
+            <label class="col-sm-4 col-sm-pull-2 control-label" for="email"><strong class="text-danger">*</strong> {{_('Email')}}</label>
+            <div class="col-sm-8 col-sm-pull-2">
+                {{ form.email(class='form-control', placeholder=_('Email')) }}
+            </div>
+            <div class="col-sm-8 col-sm-push-2 put-right">
+                {% for error in form.errors.email %}
+                <label class="control-label">
+                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> {{ error }}
+                </label>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="form-group {% if form.errors.name %}{{ 'has-error' }}{% endif %}">
+            <label class="col-sm-4 col-sm-pull-2 control-label" for="name"><strong class="text-danger">*</strong> {{_('Name')}}</label>
+            <div class="col-sm-8 col-sm-pull-2">
+                {{ form.name(class='form-control', placeholder=_('Name')) }}
+            </div>
+            <div class="col-sm-8 col-sm-push-2 put-right">
+                {% for error in form.errors.name %}
+                <label class="control-label">
+                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> {{ error }}
+                </label>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="form-group {% if form.errors.password %}{{ 'has-error' }}{% endif %}">
+            <label class="col-sm-4 col-sm-pull-2 control-label" for="password"><strong class="text-danger">*</strong> {{_('Password')}}</label>
+            <div class="col-sm-8 col-sm-pull-2">
+                {{ form.password(class='form-control', placeholder=_('Password')) }}
+            </div>
+            <div class="col-sm-8 col-sm-push-2 put-right">
+                {% for error in form.errors.password %}
+                <label class="control-label">
+                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> {{ error }}
+                </label>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="form-group {% if form.errors.password2 %}{{ 'has-error' }}{% endif %}">
+            <label class="col-sm-4 col-sm-pull-2 control-label" for="password2"><strong class="text-danger">*</strong> {{_('Confirm Password')}}</label>
+            <div class="col-sm-8 col-sm-pull-2">
+                {{ form.password2(class='form-control', placeholder=_('Confirm Password')) }}
+            </div>
+            <div class="col-sm-8 col-sm-push-2 put-right">
+                {% for error in form.errors.password2 %}
+                <label class="control-label">
+                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span> {{ error }}
+                </label>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-sm-8 col-sm-offset-2">
+                <a class="col-xs-5 btn btn-default" href="{{ url_for('site_users.user_list')}}">{{_('Back')}}</a>
+                {{ form.submit(class='col-xs-5 col-xs-offset-2 btn btn-warning') }}
+            </div>
+        </div>
+    </form>
+</div>
+
+{% endblock %}

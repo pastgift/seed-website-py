@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% import "_macros.html" as macros %}
+
+{% block title %}{{_('<Project Name>')}}{% endblock %}
+
+{% block jumbotron_content %}
+<div class="jumbotron jumbotron-splash">
+    <div class="container like-stone">
+        <p class="hidden-xs hidden-sm">&nbsp;</p>
+
+        <h1>
+            {{_('<Project Name>')}}
+            <small class="like-stone-text">v0.0.0 <br class="hidden-md hidden-lg" /></small>
+        </h1>
+
+        <div style="padding-left: 10px">
+            {% if current_user.is_authenticated %}
+            <h3><strong class="like-stone-text">{{ current_user.name }}</strong>{{_(', Welcome Back')}}</h3>
+            {% else %}
+            <h3>{{_('Welcome To <Project Name>')}}</h3>
+            {% endif %}
+
+            {% if not current_user.is_authenticated %}
+            <div class="clear-shadow" style="padding-top: 20px;">
+                <a class="btn btn-primary" style="padding-left: 30px; padding-right: 30px;" href="{{ url_for('site_auth.login') }}">
+                    <span class="glyphicon glyphicon-log-in" aria-hidden="true"></span> {{_('Login')}}
+                </a>
+            </div>
+            {% endif %}
+        </div>
+        <p class="hidden-xs hidden-sm">&nbsp;</p>
+    </div>
+</div>
+{% endblock %}
+
+{% block page_content %}
+<!-- More Inforamtion -->
+<div class="col-xs-12 text-center" style="padding: 30px 0 50px 0">
+
+</div>
+{% endblock %}

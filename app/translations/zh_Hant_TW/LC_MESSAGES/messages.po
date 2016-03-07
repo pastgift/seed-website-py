@@ -1,0 +1,469 @@
+# Chinese (Traditional, Taiwan) translations for PROJECT.
+# Copyright (C) 2016 ORGANIZATION
+# This file is distributed under the same license as the PROJECT project.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2016.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PROJECT VERSION\n"
+"Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
+"POT-Creation-Date: 2016-03-07 23:25+0800\n"
+"PO-Revision-Date: 2016-03-07 22:18+0800\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: zh_Hant_TW\n"
+"Language-Team: zh_Hans_CN <LL@li.org>\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.2.0\n"
+
+#: app/__init__.py:19
+msgid "Please login"
+msgstr "請登錄"
+
+#: app/site_auth/forms.py:16
+msgid "Please enter your email"
+msgstr "請輸入您的郵箱"
+
+#: app/site_auth/forms.py:18
+msgid "Please enter a correct email"
+msgstr "請輸入正確的郵箱"
+
+#: app/site_auth/forms.py:21
+msgid "Please enter your password"
+msgstr "請輸入您的密碼"
+
+#: app/site_auth/forms.py:24
+msgid "Please enter a 4-length CAPTCHA code"
+msgstr "請輸入4位驗證碼"
+
+#: app/site_auth/forms.py:25
+msgid "Please enter the CAPTCHA code"
+msgstr "請輸入驗證碼"
+
+#: app/site_auth/forms.py:29 app/templates/base.html:99
+#: app/templates/index.html:27 app/templates/site_auth/login.html:4
+#: app/templates/site_auth/login.html:9
+msgid "Login"
+msgstr "登錄"
+
+#: app/site_auth/forms.py:39 app/site_auth/forms.py:50
+msgid "Wrong email or password"
+msgstr "郵箱或密碼不正確"
+
+#: app/site_auth/forms.py:42
+msgid "Your account has been disabled"
+msgstr "您的帳戶已被禁用"
+
+#: app/site_auth/forms.py:57
+msgid "Wrong CAPTCHA code"
+msgstr "驗證碼不正確"
+
+#: app/site_auth/forms.py:61
+msgid "Please enter the old password"
+msgstr "請輸入舊密碼"
+
+#: app/site_auth/forms.py:64
+msgid "Please enter the new password"
+msgstr "請輸入新密碼"
+
+#: app/site_auth/forms.py:65
+msgid "The new passwords you entered do not match"
+msgstr "兩次輸入的密碼不一致"
+
+#: app/site_auth/forms.py:68
+msgid "Please confirm new password"
+msgstr "請確認新密碼"
+
+#: app/site_auth/forms.py:70 app/templates/base.html:87
+#: app/templates/site_auth/change_password.html:4
+#: app/templates/site_auth/change_password.html:9
+#: app/templates/site_users/user_list.html:139
+msgid "Change Password"
+msgstr "修改密碼"
+
+#: app/site_auth/views.py:56
+msgid "Logged out"
+msgstr "登出"
+
+#: app/site_auth/views.py:77
+msgid "Password Changed"
+msgstr "密碼已修改"
+
+#: app/site_auth/views.py:83
+msgid "Wrong old password"
+msgstr "舊密碼不正確"
+
+#: app/site_users/forms.py:16 app/site_users/forms.py:73
+#: app/templates/site_users/operation_records.html:12
+#: app/templates/site_users/user_list.html:12
+msgid "Search"
+msgstr "搜索"
+
+#: app/site_users/forms.py:20 app/site_users/forms.py:47
+msgid "Please enter a user email"
+msgstr "請輸入郵箱"
+
+#: app/site_users/forms.py:22 app/site_users/forms.py:49
+msgid "Please enter a correct user email"
+msgstr "請輸入正確的郵箱"
+
+#: app/site_users/forms.py:25 app/site_users/forms.py:52
+msgid "Please enter a user name"
+msgstr "請輸入用戶名稱"
+
+#: app/site_users/forms.py:26 app/site_users/forms.py:53
+msgid "Please enter a user name between 1 and 64 characters long"
+msgstr "用戶名稱長度必須在1到64之間"
+
+#: app/site_users/forms.py:29
+msgid "Please enter a password"
+msgstr "請輸入密碼"
+
+#: app/site_users/forms.py:30
+msgid "The passwords you entered do not match"
+msgstr "兩次輸入的密碼不一致"
+
+#: app/site_users/forms.py:33
+msgid "Please confirm the password"
+msgstr "請確認密碼"
+
+#: app/site_users/forms.py:35
+msgid "Add"
+msgstr "添加"
+
+#: app/site_users/forms.py:39 app/site_users/forms.py:62
+msgid "This email already existed"
+msgstr "此郵箱已存在"
+
+#: app/site_users/forms.py:43
+msgid "This name already existed"
+msgstr "此名稱已存在"
+
+#: app/site_users/forms.py:57 app/templates/site_users/user_list.html:154
+msgid "Edit"
+msgstr "編輯"
+
+#: app/site_users/forms.py:66
+msgid "OK"
+msgstr "確定"
+
+#: app/site_users/views.py:93
+msgid "User {} ({}) has been added"
+msgstr "已添加用戶 {} ({})"
+
+#: app/site_users/views.py:132
+msgid "User {} ({}) has been edited"
+msgstr "已修改用戶 {} ({})"
+
+#: app/site_users/views.py:156
+msgid "User {} ({}) status has been setted: {}"
+msgstr "已設置使用者狀態 {} ({}) 為：{}"
+
+#: app/site_users/views.py:201
+msgid "User {} ({}) ACL has been setted"
+msgstr "已設置用戶ACL {} ({})"
+
+#: app/templates/400.html:3 app/templates/403.html:3 app/templates/404.html:3
+#: app/templates/500.html:3 app/templates/_extra_translations.html:1
+#: app/templates/base.html:3 app/templates/base.html:25
+#: app/templates/index.html:5 app/templates/index.html:13
+#: app/templates/site_auth/change_password.html:4
+#: app/templates/site_auth/login.html:4
+#: app/templates/site_users/operation_records.html:5
+#: app/templates/site_users/user_add.html:4
+#: app/templates/site_users/user_edit.html:4
+#: app/templates/site_users/user_list.html:5
+msgid "<Project Name>"
+msgstr "種子Web專案"
+
+#: app/templates/400.html:3 app/templates/400.html:7
+msgid "Bad Operation"
+msgstr "錯誤操作"
+
+#: app/templates/400.html:13 app/templates/403.html:13
+#: app/templates/404.html:13 app/templates/500.html:26
+#: app/templates/site_users/user_add.html:69
+#: app/templates/site_users/user_edit.html:56
+msgid "Back"
+msgstr "返回"
+
+#: app/templates/403.html:3 app/templates/403.html:7
+msgid "Operation Denied"
+msgstr "操作拒絕"
+
+#: app/templates/404.html:3 app/templates/404.html:7
+msgid "Page Not Found"
+msgstr "找不到頁面"
+
+#: app/templates/500.html:3 app/templates/500.html:7
+msgid "Server Internal Error"
+msgstr "伺服器內部錯誤"
+
+#: app/templates/500.html:13
+msgid "Detail Information"
+msgstr "詳細資訊"
+
+#: app/templates/_extra_translations.html:3
+msgid "IMPORTANT"
+msgstr "重要"
+
+#: app/templates/_extra_translations.html:5
+msgid "Site User Managing Module"
+msgstr "網站使用者管理模組"
+
+#: app/templates/_extra_translations.html:6
+#: app/templates/site_users/user_add.html:4
+#: app/templates/site_users/user_add.html:10
+#: app/templates/site_users/user_list.html:50
+#: app/templates/site_users/user_list.html:108
+msgid "Add Site User"
+msgstr "添加網站用戶"
+
+#: app/templates/_extra_translations.html:7
+msgid "Modify Site User"
+msgstr "修改網站用戶"
+
+#: app/templates/_extra_translations.html:8
+msgid "Enable/Disable Site User"
+msgstr "啟動/禁用網站用戶"
+
+#: app/templates/_extra_translations.html:9
+msgid "Set Site User ACL"
+msgstr "設置網站用戶ACL"
+
+#: app/templates/_extra_translations.html:10
+msgid "Show Site User Operation Records"
+msgstr "顯示網站使用者操作記錄"
+
+#: app/templates/_macros.html:5
+msgid "Prev Page"
+msgstr "上一頁"
+
+#: app/templates/_macros.html:11
+msgid "Select Page..."
+msgstr "選擇頁號..."
+
+#: app/templates/_macros.html:17
+msgid "Next Page"
+msgstr "下一頁"
+
+#: app/templates/_macros.html:51
+msgid "No Data"
+msgstr "無數據"
+
+#: app/templates/_macros.html:62
+msgid "Quick Filter..."
+msgstr "快速過濾..."
+
+#: app/templates/_macros.html:67
+msgid "Clear Filter"
+msgstr "清除過濾"
+
+#: app/templates/base.html:20
+msgid "Navigator Bar"
+msgstr "巡覽列"
+
+#: app/templates/base.html:32
+msgid "Home Page"
+msgstr "首頁"
+
+#: app/templates/base.html:45
+msgid "Maintenance"
+msgstr "維護"
+
+#: app/templates/base.html:51
+msgid "Site User"
+msgstr "網站用戶"
+
+#: app/templates/base.html:58
+msgid "Operation Records"
+msgstr "操作記錄"
+
+#: app/templates/base.html:70
+msgid "Language"
+msgstr "語言"
+
+#: app/templates/base.html:93
+msgid "Logout"
+msgstr "登出"
+
+#: app/templates/index.html:19
+msgid ", Welcome Back"
+msgstr "，歡迎回來"
+
+#: app/templates/index.html:21
+#, fuzzy
+msgid "Welcome To <Project Name>"
+msgstr "歡迎來到 種子Web專案"
+
+#: app/templates/site_auth/change_password.html:17
+#: app/templates/site_auth/change_password.html:20
+msgid "Old Password"
+msgstr "舊密碼"
+
+#: app/templates/site_auth/change_password.html:33
+#: app/templates/site_auth/change_password.html:36
+#: app/templates/site_users/user_edit.html:42
+msgid "New Password"
+msgstr "新密碼"
+
+#: app/templates/site_auth/change_password.html:49
+#: app/templates/site_auth/change_password.html:52
+msgid "Confirm New Password"
+msgstr "確認新密碼"
+
+#: app/templates/site_auth/login.html:18
+#: app/templates/site_users/operation_records.html:28
+#: app/templates/site_users/user_add.html:16
+#: app/templates/site_users/user_add.html:18
+#: app/templates/site_users/user_edit.html:16
+#: app/templates/site_users/user_edit.html:18
+#: app/templates/site_users/user_list.html:22
+#: app/templates/site_users/user_list.html:68
+msgid "Email"
+msgstr "郵箱"
+
+#: app/templates/site_auth/login.html:33
+#: app/templates/site_users/user_add.html:42
+#: app/templates/site_users/user_add.html:44
+msgid "Password"
+msgstr "密碼"
+
+#: app/templates/site_auth/login.html:48
+msgid "CAPTCHA"
+msgstr "驗證碼"
+
+#: app/templates/site_auth/login.html:65
+msgid "Keep Login"
+msgstr "保持登錄"
+
+#: app/templates/site_auth/login.html:68
+msgid "Forget password or do not have an account?"
+msgstr "忘記密碼或還沒有帳號？"
+
+#: app/templates/site_users/operation_records.html:5
+#: app/templates/site_users/operation_records.html:53
+msgid "Operation Record"
+msgstr "操作記錄"
+
+#: app/templates/site_users/operation_records.html:20
+#: app/templates/site_users/user_list.html:26
+msgid "By Name"
+msgstr "按名稱"
+
+#: app/templates/site_users/operation_records.html:22
+#: app/templates/site_users/user_add.html:29
+#: app/templates/site_users/user_add.html:31
+#: app/templates/site_users/user_edit.html:29
+#: app/templates/site_users/user_edit.html:31
+#: app/templates/site_users/user_list.html:28
+#: app/templates/site_users/user_list.html:69
+msgid "Name"
+msgstr "名稱"
+
+#: app/templates/site_users/operation_records.html:26
+#: app/templates/site_users/user_list.html:20
+msgid "By Email"
+msgstr "按郵箱"
+
+#: app/templates/site_users/operation_records.html:32
+msgid "By Record"
+msgstr "按記錄"
+
+#: app/templates/site_users/operation_records.html:34
+#: app/templates/site_users/operation_records.html:60
+msgid "Record"
+msgstr "記錄"
+
+#: app/templates/site_users/operation_records.html:40
+#: app/templates/site_users/user_list.html:34
+msgid "Clear"
+msgstr "清除"
+
+#: app/templates/site_users/operation_records.html:59
+msgid "User"
+msgstr "用戶"
+
+#: app/templates/site_users/operation_records.html:61
+msgid "Time"
+msgstr "時間"
+
+#: app/templates/site_users/user_add.html:55
+#: app/templates/site_users/user_add.html:57
+msgid "Confirm Password"
+msgstr "確認密碼"
+
+#: app/templates/site_users/user_edit.html:4
+#: app/templates/site_users/user_edit.html:10
+#: app/templates/site_users/user_list.html:114
+msgid "Edit Site User"
+msgstr "編輯網站用戶"
+
+#: app/templates/site_users/user_edit.html:44
+msgid "New Password, or KEEP BLANK if not change"
+msgstr "新密碼，不修改請留空"
+
+#: app/templates/site_users/user_list.html:5
+#: app/templates/site_users/user_list.html:62
+msgid "Site User List"
+msgstr "網站用戶列表"
+
+#: app/templates/site_users/user_list.html:44
+msgid "Operation"
+msgstr "操作"
+
+#: app/templates/site_users/user_list.html:82
+msgid "Latest Seen："
+msgstr "最後訪問"
+
+#: app/templates/site_users/user_list.html:86
+msgid "Never"
+msgstr "從未"
+
+#: app/templates/site_users/user_list.html:94
+msgid "ME"
+msgstr "我"
+
+#: app/templates/site_users/user_list.html:97
+msgid "ADMIN"
+msgstr "管理員"
+
+#: app/templates/site_users/user_list.html:120
+msgid "Enable/Disable"
+msgstr "啟動/禁用"
+
+#: app/templates/site_users/user_list.html:126
+msgid "Set User ACL"
+msgstr "設置用戶ACL"
+
+#: app/templates/site_users/user_list.html:177
+#: app/templates/site_users/user_list.html:189
+#: app/templates/site_users/user_list.html:233
+msgid "Enabled"
+msgstr "已啟動"
+
+#: app/templates/site_users/user_list.html:182
+#: app/templates/site_users/user_list.html:194
+#: app/templates/site_users/user_list.html:254
+msgid "Disabled"
+msgstr "已禁用"
+
+#: app/templates/site_users/user_list.html:223
+msgid "Disable"
+msgstr "禁用"
+
+#: app/templates/site_users/user_list.html:243
+msgid "Enable"
+msgstr "啟動"
+
+#~ msgid "ACL Setting"
+#~ msgstr "ACL設置"
+
+#~ msgid "Site User Name："
+#~ msgstr "網站用戶名稱"
+
+#~ msgid "Site User Email："
+#~ msgstr "網站用戶郵箱"
+

@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% import "_macros.html" as macros %}
+
+{% block title %}{{_('<Project Name>')}} - {{_('ACL Setting')}}{% endblock %}
+
+{% block page_content %}
+<div class="col-md-8 col-md-push-2 col-sm-10 col-sm-push-1 col-xs-12">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <span class="glyphicon glyphicon-certificate" aria-hidden="true"></span> {{_('ACL Setting')}}
+        </div>
+        <div class="panel-body">
+            <label>{{_('Site User Name：')}}</label> <span class="add-shadow">{{ user.name }}</span><br />
+            <label>{{_('Site User Email：')}}</label> <span class="add-shadow">{{ user.email }}</span>
+        </div>
+        <div class="table-responsive">
+            <table class="table">
+                <tbody>
+                    {% for action_info in acl_actions %}
+                    {% if current_user.is_admin() or action_info.action not in limited_acl_actions %}
+                    <tr>
+                        <td>
+                            <div class="col-xs-12">
+                                <div class="form-inline form-group">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input main-action action-opt type="checkbox" id="{{ action_info.action }}"
+                                            {% if action_info.action in user_acl_action_list %}checked{% endif %}> {{ _(action_info.title) }}
+                                        </label>
+                                    </div>
+                                    {% if action_info.importance %}
+                                    <label class="label label-{{ action_info.importance }}">
+                                        {{_(action_info.importanceTitle)}}
+                                    </label>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            {% if action_info.get('sub') %}
+                            <div class="col-xs-11 col-xs-push-1">
+                                {% for sub_action_info in action_info.sub %}
+                                    <div class="form-inline form-group">
+                                        {% if current_user.is_admin() or sub_action_info.action not in limited_acl_actions %}
+                                        <div class="checkbox">
+                                            <label>
+                                                <input sub-action action-opt type="checkbox" id="{{ sub_action_info.action }}"
+                                                {% if sub_action_info.action in user_acl_action_list %}checked{% endif %}> {{ _(sub_action_info.title) }}
+                                            </label>
+                                        </div>
+                                        {% endif %}
+                                        {% if sub_action_info.importance %}
+                                        <label class="label label-{{ sub_action_info.importance }}">
+                                            {{_(sub_action_info.importanceTitle)}}
+                                        </label>
+                                        {% endif %}
+                                    </div>
+                                {% endfor %}
+                            </div>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endif %}
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <form class="form-horizontal" method="POST">
+        {{ form.hidden_tag() }}
+        <div class="form-group">
+            <div class="col-xs-12">
+                {{ form.acl_actions(class='form-control monospace-font', readonly='readonly', style='font-size: 1px; display: none;') }}
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-xs-12">
+                <a class="col-xs-5 btn btn-default" href="{{ url_for('site_users.user_list')}}">{{_('Back')}}</a>
+                {{ form.submit(class='col-xs-5 col-xs-offset-2 col btn btn-warning') }}
+            </div>
+        </div>
+    </form>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script>
+    function collectAclActions() {
+        var aclActions = [];
+        $('[action-opt]').each(function(){
+            if (this.checked == true) {
+                aclActions.push(this.id);
+            }
+        });
+        $('#acl_actions').val(JSON.stringify(aclActions));
+        return aclActions;
+    }
+
+    $('[main-action]').bind('click', function(){
+        var moduleRow = $(this).parents('tr')[0];
+        var changeTo = this.checked;
+        $(moduleRow).find('[sub-action]').each(function(){
+            this.checked = changeTo;
+        });
+        collectAclActions();
+    });
+
+    $('[sub-action]').bind('click', function(){
+        var changeTo = this.checked;
+        var moduleRow = $(this).parents('tr')[0];
+        if (this.checked == true) {
+            $(moduleRow).find('[main-action]').each(function(){
+                this.checked = true;
+            });
+        }
+        collectAclActions();
+    })
+</script>
+{% endblock %}

@@ -1,0 +1,101 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% import "_macros.html" as macros %}
+
+{% block title %}{{_('<Project Name>')}} -  {{_('Operation Record')}}{% endblock %}
+
+{% block page_content %}
+<div class="col-md-3 col-sm-4 col-xs-12">
+    <div class="panel panel-default">
+        <div class="panel-heading" role="button" data-toggle="collapse" href="[search-panel]">
+            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+            {{_('Search')}}
+            <span class="glyphicon glyphicon-triangle-bottom pull-right text-info" aria-hidden="true"></span>
+        </div>
+        <div search-panel class="panel-collapse collapse in">
+            <div class="panel-body">
+                <form class="form-horizontal" method="POST">
+                    {{ form.hidden_tag() }}
+                    <div class="form-group">
+                        <label class="col-xs-12" for="name">{{_('By Name')}}</label>
+                        <div class="col-xs-12">
+                            {{ form.name(class='form-control', placeholder=_('Name')) }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-12" for="email">{{_('By Email')}}</label>
+                        <div class="col-xs-12">
+                            {{ form.email(class='form-control', placeholder=_('Email')) }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-12" for="operation_note">{{_('By Record')}}</label>
+                        <div class="col-xs-12">
+                            {{ form.operation_note(class='form-control', placeholder=_('Record')) }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            {{ form.submit(class='col-xs-7 btn btn-default') }}
+                            <a class="col-xs-4 col-xs-offset-1 btn btn-default" onclick="clearInputBox('name', 'email', 'operation_note')">{{_('Clear')}}</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<a name="tableStartPosition" id="tableStartPosition" class="hidden-sm hidden-md hidden-lg target-fix" style="top: 380px"></a>
+<div class="col-md-9 col-sm-8 col-xs-12">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <span class="glyphicon glyphicon-barcode" aria-hidden="true"></span> {{_('Operation Record')}} <span class="badge">{{ pagination.total }}</span>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th class="col-md-2">{{_('User')}}</th>
+                        <th class="col-md-8">{{_('Record')}}</th>
+                        <th class="col-md-2">{{_('Time')}}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{ macros.no_data_page(operation_records, 3) }}
+
+                    {% for record in operation_records %}
+                    <tr>
+                        <td>
+                            <span> {{ record.User.name }}</span>
+                            <br />
+                            <span class="email" style="font-size: 8px"> {{ record.User.email }}</span>
+                        </td>
+                        <td>
+                            <span> {{ record.OperationRecord.operation_note }}</span>
+                        </td>
+                        <td>
+                            <span>
+                                {{ moment(record.OperationRecord.created_timestamp).fromNow(refresh=True) }}
+                            </span>
+                            <br />
+                            <span style="font-size: 5px">
+                                {{ moment(record.OperationRecord.created_timestamp).calendar() }}
+                            </span>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    {% if pagination %}
+    <div class="col-md-12">
+        <div class="page-bar">
+            {{ macros.pagination_widget(pagination, 'site_users.operation_records', fragment='#tableStartPosition', **prevKeyword) }}
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

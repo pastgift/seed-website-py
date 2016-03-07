@@ -1,0 +1,181 @@
+{% extends "bootstrap/base.html" %}
+
+{% block title %}{{_('<Project Name>')}}{% endblock %}
+
+{% block head %}
+{{ super() }}
+<link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+<link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='libs/jquery-ui/jquery-ui.structure.min.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='libs/jquery-ui/jquery-ui.theme.min.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='libs/jquery-ui/jquery-ui.min.css') }}">
+{% endblock %}
+
+{% block navbar %}
+<div front-content class="navbar navbar-inverse navbar-fixed-top nav-opacity" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                <span class="sr-only">{{_('Navigator Bar')}}</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand hidden-sm" href="{{ url_for('index.index') }}">{{_('<Project Name>')}}</a>
+        </div>
+        <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="{{ url_for('index.index') }}">
+                        <span class="glyphicon glyphicon-home" aria-hidden="true"></span>
+                        <span class="hidden-sm">{{_('Home Page')}}</span>
+                    </a>
+                </li>
+                {% if current_user.is_authenticated %}
+
+                {% endif %}
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                {% if current_user.is_authenticated %}
+                    {% if current_user.can('enterManageUsers') or current_user.can('enterMaintenance') %}
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span>
+                            <span class="hidden-sm">{{_('Maintenance')}}</span> <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            {% if current_user.can('enterManageUsers') %}
+                            <li>
+                                <a loading-mask-required href="{{ url_for('site_users.user_list') }}">
+                                    <span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{_('Site User')}}
+                                </a>
+                            </li>
+                            {% endif %}
+                            {% if current_user.can('showManageSiteUserOperationRecords') %}
+                            <li>
+                                <a href="{{ url_for('site_users.operation_records') }}">
+                                    <span class="glyphicon glyphicon-time" aria-hidden="true"></span> {{_('Operation Records')}}
+                                </a>
+                            </li>
+                            {% endif %}
+                            <!-- <li role="separator" class="divider"></li> -->
+                        </ul>
+                    </li>
+                    {% endif %}
+                {% endif %}
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
+                        <span class="hidden-sm">{{_('Language')}}</span> <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a loading-mask-required change-lang="en" href="#">English</a></li>
+                        <li><a loading-mask-required change-lang="zh_CN" href="#">大陆简体</a></li>
+                        <li><a loading-mask-required change-lang="zh_TW" href="#">台灣正體</a></li>
+                        <li><a loading-mask-required change-lang="ja" href="#">日本語</a></li>
+                    </ul>
+                </li>
+                {% if current_user.is_authenticated %}
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        {{ current_user.name }} <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="{{ url_for('site_auth.change_password') }}">
+                                <span class="glyphicon glyphicon-lock" aria-hidden="true"></span> {{_('Change Password')}}
+                            </a>
+                        </li>
+                        <li role="separator" class="divider"></li>
+                        <li>
+                            <a href="{{ url_for('site_auth.logout') }}">
+                                <span class="glyphicon glyphicon-off" aria-hidden="true"></span> {{_('Logout')}}
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                {% else %}
+                <li><a href="{{ url_for('site_auth.login') }}">{{_('Login')}}</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block content %}
+<div front-content class="container">
+    {% for (category, message) in get_flashed_messages(with_categories=True) %}
+    <div class="alert alert-{{category}}" style="height: 50px; padding: 10px; position: fixed; bottom: 0px; right: 10px; z-index: 99999;">
+        <a class="close alert-icon" data-dismiss="alert" style="padding-left: 20px">
+            <span class="glyphicon glyphicon-remove alert-icon" aria-hidden="true"></span>
+        </a>
+        {% if category == 'success' %}
+            <span class="glyphicon glyphicon-ok-sign alert-icon" aria-hidden="true"></span> {{ message }}
+        {% elif category == 'info' %}
+            <span class="glyphicon glyphicon-info-sign alert-icon" aria-hidden="true"></span> {{ message }}
+        {% elif category == 'warning' %}
+            <span class="glyphicon glyphicon-exclamation-sign alert-icon" aria-hidden="true"></span> {{ message }}
+        {% elif category == 'danger' %}
+            <span class="glyphicon glyphicon-remove-sign alert-icon" aria-hidden="true"></span> {{ message }}
+        {% else %}
+            {{ message }}
+        {% endif %}
+    </div>
+    {% endfor %}
+</div>
+
+<div>
+    {% block jumbotron_content %}{% endblock %}
+</div>
+
+<div front-content class="container">
+    {% block page_content %}{% endblock %}
+</div>
+
+<div id="loadingMask" class="loading-mask" style="display: none;"></div>
+<div id="loadingMaskContent" style="display: none;">
+    <div class="loading-text">
+        <span id="spinJsTarget"></span>
+    </div>
+    <div class="loading-tip add-white-smoke-heavy" style="display: none;">
+        <span class="glyphicon glyphicon-bullhorn" aria-hidden="true" style="padding-right: 10px"></span>
+        <span id="loadingTip" class="hidden-xs hidden-sm"></span>
+        <span id="loadingTipSmall" class="hidden-md hidden-lg small-tip"></span>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+{{ moment.include_moment(local_js='/static/libs/moment-js/moment-with-locales.min.js') }}
+{{ moment.lang(g.lang) }}
+<script src="{{ url_for('static', filename='libs/jquery-cookie/jquery.cookie.min.js') }}"></script>
+<script src="{{ url_for('static', filename='libs/jquery-ui/jquery-ui-i18n.js') }}"></script>
+<script src="{{ url_for('static', filename='libs/jquery-ui/jquery-ui.min.js') }}"></script>
+<script src="{{ url_for('static', filename='libs/spin-js/spin.min.js') }}"></script>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+<script src="{{ url_for('static', filename='tips.js') }}"></script>
+<script src="{{ url_for('static', filename='loading.js') }}"></script>
+<script>
+    $(function () {
+        $('[data-toggle="popover"]').popover();
+        $('[data-toggle="tooltip"]').tooltip();
+    });
+
+    var loadings = [bollLoading, clockLoading, rollLoading];
+    var loadingStyleIndex = parseInt(Math.random() * 3 + Date.now()) % 3;
+    loadings[loadingStyleIndex]();
+
+    $('[loading-mask-required]').bind('click', showLoadingMask);
+    $(':submit').bind('click', showLoadingMask);
+
+    $('[change-lang]').bind('click', function(){
+        var nextLang = $(this).attr('change-lang');
+        $.cookie('lang', nextLang, {path: '/'});
+        window.location.reload();
+    });
+</script>
+{% endblock %}

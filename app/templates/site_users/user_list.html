@@ -1,0 +1,263 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% import "_macros.html" as macros %}
+
+{% block title %}{{_('<Project Name>')}} - {{_('Site User List')}}{% endblock %}
+
+{% block page_content %}
+<div class="col-md-3 col-sm-4 col-xs-12">
+    <div class="panel panel-default">
+        <div class="panel-heading" role="button" data-toggle="collapse" href="[search-panel]">
+            <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+            {{_('Search')}}
+            <span class="glyphicon glyphicon-triangle-bottom pull-right text-info" aria-hidden="true"></span>
+        </div>
+        <div search-panel class="panel-collapse collapse {% if hasKeyword %}in{% endif %}">
+            <div class="panel-body">
+                <form class="form-horizontal" method="POST">
+                    {{ form.hidden_tag() }}
+                    <div class="form-group">
+                        <label class="col-xs-12" for="email">{{_('By Email')}}</label>
+                        <div class="col-xs-12">
+                            {{ form.email(class='form-control', placeholder=_('Email')) }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-xs-12" for="name">{{_('By Name')}}</label>
+                        <div class="col-xs-12">
+                            {{ form.name(class='form-control', placeholder=_('Name')) }}
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-xs-12">
+                            {{ form.submit(class='col-xs-7 btn btn-default') }}
+                            <a class="col-xs-4 col-xs-offset-1 btn btn-default" onclick="clearInputBox('email', 'name')">{{_('Clear')}}</a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {% if current_user.can_any('addSiteUser') %}
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> {{_('Operation')}}
+        </div>
+        <div class="panel-body">
+            <div class="list-group">
+                {% if current_user.can('addSiteUser') %}
+                <a class="list-group-item" href="{{ url_for('site_users.user_add') }}">
+                    <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> {{_('Add Site User')}}
+                </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>
+
+<div class="col-md-9 col-sm-8 col-xs-12">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{_('Site User List')}} <span class="badge">{{ pagination.total }}</span>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th class="col-md-3">{{_('Email')}}</th>
+                        <th class="col-md-3">{{_('Name')}}</th>
+                        <th class="col-md-6"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{ macros.no_data_page(users, 3) }}
+
+                    {% for user in users %}
+                    <tr>
+                        <td>
+                            <span class="email"> {{ user.email }}</span>
+                            <br />
+                            <small>
+                                {{_('Latest Seen：')}}
+                                {% if user.last_seen %}
+                                {{ moment(user.last_seen).fromNow(refresh=True) }}
+                                {% else %}
+                                {{_('Never')}}
+                                {% endif %}
+                            </small>
+                        </td>
+                        <td>
+                            {{ user.name }}
+
+                            {% if user.email == current_user.email %}
+                            <span class="label label-success label-space"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> {{_('ME')}}</span>
+                            {% endif %}
+                            {% if user.is_admin() %}
+                            <span class="label label-danger label-space"><span class="glyphicon glyphicon-star" aria-hidden="true"></span> {{_('ADMIN')}}</span>
+                            {% endif %}
+
+                            {% if not user.is_admin() %}
+                                {% if user.can_any(
+                                        'addSiteUser',
+                                        'editSiteUser',
+                                        'setSiteUserStatus',
+                                        'setSiteUserAcl') %}
+                                <br />
+                                    {% if user.can('addSiteUser') %}
+                                    <span class="label label-orange label-space" data-toggle="tooltip" data-placement="bottom" title="{{_('Add Site User')}}">
+                                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                                    </span>
+                                    {% endif %}
+                                    {% if user.can('editSiteUser') %}
+                                    <span class="label label-orange label-space" data-toggle="tooltip" data-placement="bottom" title="{{_('Edit Site User')}}">
+                                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                                    </span>
+                                    {% endif %}
+                                    {% if user.can('setSiteUserStatus') %}
+                                    <span class="label label-orange label-space" data-toggle="tooltip" data-placement="bottom" title="{{_('Enable/Disable')}}">
+                                        <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+                                        <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+                                    </span>
+                                    {% endif %}
+                                    {% if user.can('setSiteUserAcl') %}
+                                    <span class="label label-orange label-space" data-toggle="tooltip" data-placement="bottom" title="{{_('Set User ACL')}}">
+                                        <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+                                        <span class="glyphicon glyphicon-certificate" aria-hidden="true"></span>
+
+                                    </span>
+                                    {% endif %}
+                                {% endif %}
+                            {% endif %}
+                        </td>
+                        <td class="set-middle">
+                            <div class="pull-right">
+                                {% if user.email == current_user.email %}
+                                <a class="btn btn-default btn-xs" href="{{ url_for('site_auth.change_password') }}">
+                                    <span class="glyphicon glyphicon-lock" aria-hidden="true"></span> <span class="hidden-xs hidden-sm">{{_('Change Password')}}</span>
+                                </a>
+                                {% endif %}
+
+                                {% if not user.is_admin() or current_user.is_admin() %}
+                                    {% if current_user.is_admin() or current_user.can('editSiteUser') %}
+                                    <a class="btn btn-default btn-xs"
+                                        {% if current_user.can('editSiteUser') and not user.can('editSiteUser')
+                                                or current_user.id == user.id
+                                                or current_user.is_admin() %}
+                                            href="{{ url_for('site_users.user_edit', user_id=user.id) }}"
+                                        {% else %}
+                                            disabled
+                                        {% endif %}>
+                                        <span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+                                        <span class="hidden-xs hidden-sm hidden-md">{{_('Edit')}}</span>
+                                    </a>
+                                    {% endif %}
+
+                                    {% if current_user.is_admin() or current_user.can('setSiteUserAcl') %}
+                                    <a class="btn btn-default btn-xs"
+                                        {% if current_user.can('setSiteUserAcl') and not user.can('setSiteUserAcl')
+                                                or current_user.is_admin() %}
+                                            href="{{ url_for('site_users.user_acl_setting', user_id=user.id) }}"
+                                        {% else %}
+                                            disabled
+                                        {% endif %}>
+                                        <span class="glyphicon glyphicon-certificate" aria-hidden="true"></span>
+                                        <span class="hidden-xs hidden-sm hidden-md">ACL</span>
+                                    </a>
+                                    {% endif %}
+
+                                    {% if current_user.id != user.id %}
+                                        {% if current_user.can('setSiteUserStatus') and not user.can('setSiteUserStatus')
+                                                or current_user.is_admin() %}
+                                            {% if user.status == 'normal' %}
+                                            <a enabled-user class="btn btn-success btn-xs" href="{{ url_for('site_users.user_set_status', user_id=user.id, nextStauts='disabled') }}">
+                                                <span enabled-user-icon class="glyphicon glyphicon-circle-arrow-up" aria-hidden="true"></span>
+                                                <span enabled-user-title class="hidden-xs hidden-sm hidden-md" style="width: 50px; display: inline-block;">{{_('Enabled')}}</span>
+                                            </a>
+                                            {% elif user.status == 'disabled' %}
+                                            <a disabled-user class="btn btn-danger btn-xs" href="{{ url_for('site_users.user_set_status', user_id=user.id, nextStauts='normal') }}">
+                                                <span enabled-user-icon class="glyphicon glyphicon-circle-arrow-down" aria-hidden="true"></span>
+                                                <span disabled-user-title class="hidden-xs hidden-sm hidden-md" style="width: 50px; display: inline-block;">{{_('Disabled')}}</span>
+                                            </a>
+                                            {% endif %}
+                                        {% else %}
+                                            {% if user.status == 'normal' %}
+                                            <span class="btn btn-success btn-xs disabled">
+                                                <span class="glyphicon glyphicon-circle-arrow-up" aria-hidden="true"></span>
+                                                <span class="hidden-xs hidden-sm hidden-md" style="width: 50px; display: inline-block;">{{_('Enabled')}}</span>
+                                            </span>
+                                            {% elif user.status == 'disabled' %}
+                                            <span class="btn btn-danger btn-xs disabled">
+                                                <span class="glyphicon glyphicon-circle-arrow-down" aria-hidden="true"></span>
+                                                <span class="hidden-xs hidden-sm hidden-md" style="width: 50px; display: inline-block;">{{_('Disabled')}}</span>
+                                            </span>
+                                            {% endif %}
+                                        {% endif %}
+                                    {% endif %}
+                                {% endif %}
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    {% if pagination %}
+    <div class="col-md-12">
+        <div class="page-bar">
+            {{ macros.pagination_widget(pagination, 'users.user_list', **prevKeyword) }}
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
+
+{% block scripts %}
+{{ super() }}
+<script>
+    $('[enabled-user]').bind('mouseover', function() {
+        $(this).find('[enabled-user-title]').text('{{_('Disable')}}');
+
+        $(this).find('[enabled-user-icon]').removeClass('glyphicon-circle-arrow-up');
+        $(this).removeClass('btn-success');
+
+        $(this).find('[enabled-user-icon]').addClass('glyphicon-circle-arrow-down');
+        $(this).addClass('btn-danger');
+    });
+
+    $('[enabled-user]').bind('mouseout', function() {
+        $(this).find('[enabled-user-title]').text('{{_('Enabled')}}');
+
+        $(this).find('[enabled-user-icon]').removeClass('glyphicon-circle-arrow-down');
+        $(this).removeClass('btn-danger');
+
+        $(this).find('[enabled-user-icon]').addClass('glyphicon-circle-arrow-up');
+        $(this).addClass('btn-success');
+    });
+
+    $('[disabled-user]').bind('mouseover', function() {
+        $(this).find('[disabled-user-title]').text('{{_('Enable')}}');
+
+        $(this).find('[enabled-user-icon]').removeClass('glyphicon-circle-arrow-down');
+        $(this).removeClass('btn-danger');
+
+        $(this).find('[enabled-user-icon]').addClass('glyphicon-circle-arrow-up');
+        $(this).addClass('btn-success');
+
+    });
+
+    $('[disabled-user]').bind('mouseout', function() {
+        $(this).find('[disabled-user-title]').text('{{_('Disabled')}}');
+
+        $(this).find('[enabled-user-icon]').removeClass('glyphicon-circle-arrow-up');
+        $(this).removeClass('btn-success');
+
+        $(this).find('[enabled-user-icon]').addClass('glyphicon-circle-arrow-down');
+        $(this).addClass('btn-danger');
+    });
+</script>
+{% endblock %}

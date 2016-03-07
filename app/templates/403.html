@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}{{_('<Project Name>')}} - {{_('Operation Denied')}}{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+    <h3>{{_('Operation Denied')}}</h3>
+</div>
+
+<div class="page-body">
+    <div class="col-xs-12 text-center" style="margin-top: 100px">
+        <a class="btn btn-default" style="padding-left: 50px; padding-right: 50px;" onclick="history.back();">
+            <span class="glyphicon glyphicon-circle-arrow-left" aria-hidden="true"></span> {{_('Back')}}
+        </a>
+    </div>
+</div>
+{% endblock %}
