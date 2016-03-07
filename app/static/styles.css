@@ -132,7 +132,6 @@ td.set-middle {
     white-space: nowrap;
 }
 
-/* 邮箱 */
 .email {
     font-size: 16px;
     font-family: Arial;
@@ -140,12 +139,10 @@ td.set-middle {
     text-shadow: 1px 1px 1px lightgrey !important;
 }
 
-/* 分页控件 */
 div.page-bar {
     text-align: center;
 }
 
-/* 字体及颜色 */
 .text-red {
     color: red !important;
 }
