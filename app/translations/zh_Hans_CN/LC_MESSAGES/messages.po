@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-08 00:33+0800\n"
+"POT-Creation-Date: 2016-03-08 00:39+0800\n"
 "PO-Revision-Date: 2016-03-07 22:18+0800\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: zh_Hans_CN\n"
@@ -336,6 +336,10 @@ msgstr "密码"
 msgid "CAPTCHA"
 msgstr "验证码"
 
+#: app/templates/site_auth/login.html:50
+msgid "Click to Refresh"
+msgstr "点击刷新验证码"
+
 #: app/templates/site_auth/login.html:65
 msgid "Keep Login"
 msgstr "保持登录"
@@ -347,7 +351,7 @@ msgstr "忘记密码或还没有账号？"
 #: app/templates/site_users/acl_setting.html:5
 #: app/templates/site_users/acl_setting.html:11
 msgid "ACL Setting"
-msgstr ""
+msgstr "ACL设置"
 
 #: app/templates/site_users/acl_setting.html:14
 msgid "Site User Name："

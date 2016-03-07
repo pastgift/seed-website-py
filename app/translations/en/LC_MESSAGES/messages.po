@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2016-03-08 00:33+0800\n"
+"POT-Creation-Date: 2016-03-08 00:39+0800\n"
 "PO-Revision-Date: 2016-03-07 20:08+0800\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language: en\n"
@@ -334,6 +334,10 @@ msgstr ""
 
 #: app/templates/site_auth/login.html:48
 msgid "CAPTCHA"
+msgstr ""
+
+#: app/templates/site_auth/login.html:50
+msgid "Click to Refresh"
 msgstr ""
 
 #: app/templates/site_auth/login.html:65

@@ -47,7 +47,7 @@
                 </span>
                 {{ form.captcha(class='form-control', placeholder=_('CAPTCHA')) }}
                 <span class="input-group-addon" style="padding: 2px;">
-                    <img id="loginCaptcha" src="" style="height: 28px; cursor: pointer;" data-toggle="tooltip" data-placement="right" title="Click to Refresh" onclick="refreshLoginCaptcha();"></img>
+                    <img id="loginCaptcha" src="" style="height: 28px; cursor: pointer;" data-toggle="tooltip" data-placement="right" title="{{_('Click to Refresh')}}" onclick="refreshLoginCaptcha();"></img>
                 </span>
             </div>
             <div class="put-right">
